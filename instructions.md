@@ -15,4 +15,5 @@
 <h2>Run Python</h2>
 <h4>Copy program.py into any directory on your pc (can also go in the startup folder), then run it, it will run in the background, sending requests to the server</h4>
 
-<h2>Note: IF YOU WANT THE UPDATING VERSION PLEASE TAKE ALL FILES FROM THE "NEW" FOLDER INSTEAD OF THE MAIN REPOS DIRECTORY</h2>
+<h2>Note: </h2>
+<h4>IF YOU WANT THE UPDATING VERSION PLEASE TAKE ALL FILES FROM THE "NEW" FOLDER INSTEAD OF THE MAIN REPOS DIRECTORY<br>If you are using the new version, you will also need to copy handler.php onto the server</h4>
