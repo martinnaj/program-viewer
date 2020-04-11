@@ -6,7 +6,7 @@
 <h2>Install Python, PIP and run the following commands on cmd</h2>
 <h4>pip install requests<br>pip install win32gui</h4>
 
-<h2>Add the two php files to server<h2>
+<h2>Add the two php files to server</h2>
 <h4>Copy active.php and index.php into your web server using file manager</h4>
 
 <h2>Update the URL in the python file</h2>
