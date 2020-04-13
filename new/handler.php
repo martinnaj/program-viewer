@@ -5,7 +5,7 @@ function secondsToTime($seconds) {
     return $dtF->diff($dtT)->format('%a days, %h hours, %i minutes and %s seconds');
 }
 $files = glob("*.txt");
-echo "<tbody><tr><th>Program</th><th>Time</th></tr>";
+echo "<tbody><tr style=\"background-color: black\"><th>Program</th><th>Time</th></tr>";
 $names = array();
 $times = array();
 
