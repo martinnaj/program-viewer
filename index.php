@@ -14,38 +14,33 @@ function secondsToTime($seconds) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
-        <table class="table table-dark">
+        <table id="table" class="table table-dark">
             <tbody>
-                <tr>
-                    <th>
-                        Program
-                    </th>
-                    <th>
-                        Time
-                    </th>
+                <tr style="background-color: black">
+                    <th>Program</th>
+                    <th>Time</th>
                 </tr>
                 <?php
-                $files = glob("*.txt");
-                $names = array();
-                $times = array();
-                
-                foreach ($files as $file) {
-                    array_push($names, base64_decode(substr($file, 0, -4)));
-                    array_push($times, time() - intval(file_get_contents("./$file")));
+                $names = [];
+                $times = [];
+
+                foreach (glob("*.txt") as $file) {
+                    $names[] = base64_decode(substr($file, 0, -4));
+                    $times[] = time() - intval(file_get_contents("./$file"));
                 }
-                
+
                 array_multisort($times, $names);
-                
-                for ($x = (count($names) - 1); $x >= 0; $x--) {
-                    echo "<tr><td>";
-                    echo $names[$x];
-                    echo "</td>";
-                    echo "<td>";
-                    echo secondsToTime($times[$x]);
-                    echo "</td></tr>";
-                }
+
+                for ($x = (count($names) - 1); $x >= 0; $x--) echo '<tr><td>'.$names[$x].'</td><td>'.secondsToTime($times[$x]).'</td></tr>';
                 ?>
             </tbody>
         </table>
+        <script>
+        getData();
+        function getData() {
+            $.get("handler.php", function(data, status) { document.getElementById("table").innerHTML = data; });
+        }
+        setInterval(getData(), 1000);
+        </script>
     </body>
 </html>
