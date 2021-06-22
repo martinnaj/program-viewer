@@ -1,4 +1,5 @@
 <?php
+
 function secondsToTime($seconds) {
     $dtF = new \DateTime('@0');
     $dtT = new \DateTime("@$seconds");
@@ -20,4 +21,5 @@ array_multisort($times, $names);
 for ($x = (count($names) - 1); $x >= 0; $x--) echo '<tr><td>'.$names[$x].'</td><td>'.secondsToTime($times[$x]).'</td></tr>';
 
 echo '</tbody>';
+
 ?>
