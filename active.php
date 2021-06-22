@@ -1,26 +1,15 @@
 <?php
+
 if (isset($_POST['x'])) {
-    $txt = $_POST['x'];
-    $items = explode("###NEWITEM###", $txt);
-    unset($items[0]);
-    $ls = array();
-    foreach ($items as $item) {
+    foreach (array_slice(explode("###NEWITEM###", $_POST['x']), 1) as $item) {
         $name = base64_encode($item);
-        array_push($ls, $name);
-        if (!(file_exists("./$name.txt"))) {
-            $fp = fopen("./$name.txt", 'w');
-            fwrite($fp, time());
-            fclose($fp);
-        }
+        if (!(file_exists("./$name.txt"))) file_put_contents("./$name.txt", strval(time()));
     }
-    
-    $files = glob("*.txt");
-    
-    foreach ($files as $file) {
+
+    foreach (glob("*.txt") as $file) {
         $name = base64_decode(substr($file, 0, -4));
-        if (!(in_array($name, $items))) {
-            unlink($file);
-        }
+        if (!(in_array($name, $items))) unlink($file);
     }
 }
+
 ?>
