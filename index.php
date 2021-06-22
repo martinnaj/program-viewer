@@ -1,9 +1,12 @@
 <?php
+
 function secondsToTime($seconds) {
     $dtF = new \DateTime('@0');
     $dtT = new \DateTime("@$seconds");
     return $dtF->diff($dtT)->format('%a days, %h hours, %i minutes and %s seconds');
 }
+
+
 ?>
 <html>
     <head>
@@ -36,11 +39,13 @@ function secondsToTime($seconds) {
             </tbody>
         </table>
         <script>
+        
         getData();
         function getData() {
             $.get("handler.php", function(data, status) { document.getElementById("table").innerHTML = data; });
         }
         setInterval(getData(), 1000);
+
         </script>
     </body>
 </html>
