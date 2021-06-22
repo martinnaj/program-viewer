@@ -6,7 +6,6 @@ function secondsToTime($seconds) {
     return $dtF->diff($dtT)->format('%a days, %h hours, %i minutes and %s seconds');
 }
 
-
 ?>
 <html>
     <head>
@@ -24,6 +23,7 @@ function secondsToTime($seconds) {
                     <th>Time</th>
                 </tr>
                 <?php
+
                 $names = [];
                 $times = [];
 
@@ -35,11 +35,12 @@ function secondsToTime($seconds) {
                 array_multisort($times, $names);
 
                 for ($x = (count($names) - 1); $x >= 0; $x--) echo '<tr><td>'.$names[$x].'</td><td>'.secondsToTime($times[$x]).'</td></tr>';
+                
                 ?>
             </tbody>
         </table>
         <script>
-        
+
         getData();
         function getData() {
             $.get("handler.php", function(data, status) { document.getElementById("table").innerHTML = data; });
